@@ -66,7 +66,7 @@ const Container = styled.div<{ hideInput: boolean; disabled: boolean; redesignFl
   `}
 `
 
-const CurrencySelect = styled(ButtonGray)<{
+const CurrencySelect = styled(ButtonGray) <{
   visible: boolean
   selected: boolean
   hideInput?: boolean
@@ -80,8 +80,8 @@ const CurrencySelect = styled(ButtonGray)<{
         ? theme.backgroundInteractive
         : theme.accentAction
       : selected
-      ? theme.deprecated_bg2
-      : theme.deprecated_primary1};
+        ? theme.deprecated_bg2
+        : theme.deprecated_primary1};
   opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
   box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
   color: #f6f6f6;
@@ -167,7 +167,7 @@ const LabelRow = styled.div<{ redesignFlag: boolean }>`
   }
 `
 
-const FiatRow = styled(LabelRow)<{ redesignFlag: boolean }>`
+const FiatRow = styled(LabelRow) <{ redesignFlag: boolean }>`
   justify-content: flex-end;
   min-height: ${({ redesignFlag }) => redesignFlag && '20px'};
   padding: ${({ redesignFlag }) => redesignFlag && '8px 0px 0px 0px'};
@@ -181,7 +181,7 @@ const Aligner = styled.span`
   width: 100%;
 `
 
-const StyledDropDown = styled(DropDown)<{ selected: boolean; redesignFlag: boolean }>`
+const StyledDropDown = styled(DropDown) <{ selected: boolean; redesignFlag: boolean }>`
   margin: 0 0.25rem 0 0.35rem;
   height: 35%;
   margin-left: ${({ redesignFlag }) => redesignFlag && '8px'};
@@ -222,7 +222,7 @@ const StyledBalanceMax = styled.button<{ disabled?: boolean; redesignFlag: boole
   }
 `
 
-const StyledNumericalInput = styled(NumericalInput)<{ $loading: boolean; redesignFlag: boolean }>`
+const StyledNumericalInput = styled(NumericalInput) <{ $loading: boolean; redesignFlag: boolean }>`
   ${loadingOpacityMixin};
   text-align: left;
   font-size: ${({ redesignFlag }) => redesignFlag && '36px'};
@@ -351,8 +351,8 @@ export default function SwapCurrencyInputPanel({
                   >
                     {(currency && currency.symbol && currency.symbol.length > 20
                       ? currency.symbol.slice(0, 4) +
-                        '...' +
-                        currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)
+                      '...' +
+                      currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)
                       : currency?.symbol) || <Trans>Select token</Trans>}
                   </StyledTokenName>
                 )}
